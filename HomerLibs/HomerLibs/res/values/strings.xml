@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">HomerLibs</string>
-    <string name="menu_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-	<string name = "homer_log_keep_logging">0</string>
-</resources>
