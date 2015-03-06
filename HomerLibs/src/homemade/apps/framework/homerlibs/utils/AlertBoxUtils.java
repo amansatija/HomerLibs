@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 
 public class AlertBoxUtils {
@@ -88,6 +89,7 @@ public class AlertBoxUtils {
 	 * @param msg
 	 * @return
 	 */
+	@Deprecated
 	public static AlertDialog getAlertDialogBoxForExit(Context context,
 			String msg) {
 
@@ -106,6 +108,52 @@ public class AlertBoxUtils {
 				// the dialog box and do nothing
 				dialog.dismiss();
 				System.exit(0);
+			}
+		}).setNegativeButton("Cancel", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+			}
+		});
+		AlertDialog alert_dialog = alertDialogBuilder.create();
+		return alert_dialog;
+	}
+
+	/**
+	 * Display popup with a button that exits the app on clicked.
+	 * 
+	 * @description : it is same as getAlertBox(context , "msg") except for on
+	 *              clicking of cancel button it exits the app by calling
+	 *              System.exit(0)
+	 * @param context
+	 * @param msg
+	 * @return
+	 */
+
+	public static AlertDialog getAlertDialogBoxForExitNew(final Activity context,
+			String msg) {
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				context);
+
+		// set title
+		// alertDialogBuilder.setTitle("Alert");
+
+		// set dialog message
+		alertDialogBuilder.setMessage(msg).setCancelable(false)
+
+		.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				// if this button is clicked, just close
+				// the dialog box and do nothing
+				dialog.dismiss();
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_HOME);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+
 			}
 		}).setNegativeButton("Cancel", new OnClickListener() {
 
