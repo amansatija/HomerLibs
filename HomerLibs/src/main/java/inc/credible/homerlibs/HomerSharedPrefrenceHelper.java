@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class HomerSharedPrefrenceHelper {
 
-    public static final String mStrPrefName = "HL_PREFS_"+BuildConfig.APPLICATION_ID;
+    public static final String mStrPrefName = "HL_PREFS_"+BuildConfig.LIBRARY_PACKAGE_NAME;
 
     public static final String mStrKeyShowIntro = "mStrKeyShowIntro";
 
