@@ -1,0 +1,3 @@
+include ':HomerLibs'
+include ':app'
+rootProject.name = "HomerLibsDemo"
