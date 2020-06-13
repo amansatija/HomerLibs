@@ -7,7 +7,7 @@ package inc.credible.homerlibs.session;
 import android.content.Context;
 
 import inc.credible.homerlibs.HomerLogger;
-import inc.credible.homerlibs.HomerSharedPrefrenceHelper;
+import inc.credible.homerlibs.HomerPrefHelper;
 import inc.credible.homerlibs.json_models.ModelUser;
 
 
@@ -22,8 +22,8 @@ public class SessionProvider {
     public static ModelUser getmUser(Context context) {
         if (mMUser == null && context != null) {
             HomerLogger.i("inside getmUser, mMUser==null");
-            String mStrUserData = HomerSharedPrefrenceHelper.getPref(context).
-                    getString(HomerSharedPrefrenceHelper.mStrKeyStrUserData, "");
+            String mStrUserData = HomerPrefHelper.getPref(context).
+                    getString(HomerPrefHelper.mStrKeyStrUserData, "");
             mMUser = new ModelUser();
             mMUser.restoreFromSavedString(mStrUserData);
         }
@@ -32,17 +32,17 @@ public class SessionProvider {
 
     public static void setmUser(Context context, ModelUser mModelUser) {
 
-        HomerSharedPrefrenceHelper.saveString(context, HomerSharedPrefrenceHelper.mStrKeyStrUserData, mModelUser.toString());
+        HomerPrefHelper.saveString(context, HomerPrefHelper.mStrKeyStrUserData, mModelUser.toString());
         mMUser = mModelUser;
     }
 
     public static void editUser(Context context , String mStrKey , String mValue){
         mMUser.setParamIntoJson(mStrKey,mValue);
-        HomerSharedPrefrenceHelper.saveString(context, HomerSharedPrefrenceHelper.mStrKeyStrUserData, mMUser.toString());
+        HomerPrefHelper.saveString(context, HomerPrefHelper.mStrKeyStrUserData, mMUser.toString());
     }
     public static void logUserIn(Context context, ModelUser mModelArgUser) {
-        HomerSharedPrefrenceHelper.getPref(context).edit()
-                .putBoolean(HomerSharedPrefrenceHelper.mStrKeyLoggedIn, true).commit();
+        HomerPrefHelper.getPref(context).edit()
+                .putBoolean(HomerPrefHelper.mStrKeyLoggedIn, true).commit();
 
         setmUser(context, mModelArgUser);
     }
@@ -50,14 +50,14 @@ public class SessionProvider {
     public static void logUserOut(Context context) {
         setmUser(context, new ModelUser());
 
-        HomerSharedPrefrenceHelper.removeKey(context,HomerSharedPrefrenceHelper.mStrKeyLoggedIn);
+        HomerPrefHelper.removeKey(context, HomerPrefHelper.mStrKeyLoggedIn);
 
-        HomerSharedPrefrenceHelper.removeKey(context,HomerSharedPrefrenceHelper.mStrKeyStrUserData);
+        HomerPrefHelper.removeKey(context, HomerPrefHelper.mStrKeyStrUserData);
 
     }
 
     public static boolean isUserLoggedIn(Context context){
-        return HomerSharedPrefrenceHelper.getPref(context)
-                .getBoolean(HomerSharedPrefrenceHelper.mStrKeyLoggedIn, false);
+        return HomerPrefHelper.getPref(context)
+                .getBoolean(HomerPrefHelper.mStrKeyLoggedIn, false);
     }
 }

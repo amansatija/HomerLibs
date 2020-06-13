@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import java.util.HashMap;
 import java.util.Set;
 
-public class HomerSharedPrefrenceHelper {
+public class HomerPrefHelper {
     public static final String mStrPrefName = "PrefsContractorTracking";
 
     public static final String mStrKeyShowIntro = "mStrKeyShowIntro";
@@ -54,7 +54,7 @@ public class HomerSharedPrefrenceHelper {
     }
 
     public static SharedPreferences getPref(Context context) {
-        return HomerSharedPrefrenceHelper.getPref(context, null);
+        return HomerPrefHelper.getPref(context, null);
     }
 
     public static boolean saveString(Context mCtxArgContext, String mStrArgKey, String mStrArgVal) {
@@ -70,7 +70,7 @@ public class HomerSharedPrefrenceHelper {
     public static boolean saveString(Context mCtxArgContext, String mStrArgPrefName, String mStrArgKey, String mStrArgVal) {
         boolean returnVar = false;
         try {
-            returnVar = HomerSharedPrefrenceHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putString(mStrArgKey, mStrArgVal).commit();
+            returnVar = HomerPrefHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putString(mStrArgKey, mStrArgVal).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class HomerSharedPrefrenceHelper {
     public static boolean saveBoolean(Context mCtxArgContext, String mStrArgPrefName, String mStrArgKey, Boolean mBoolArgVal) {
         boolean returnVar = false;
         try {
-            returnVar = HomerSharedPrefrenceHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putBoolean(mStrArgKey, mBoolArgVal).commit();
+            returnVar = HomerPrefHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putBoolean(mStrArgKey, mBoolArgVal).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -111,7 +111,7 @@ public class HomerSharedPrefrenceHelper {
     public static boolean saveInt(Context mCtxArgContext, String mStrArgPrefName, String mStrArgKey, int mIntArgVal) {
         boolean returnVar = false;
         try {
-            returnVar = HomerSharedPrefrenceHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putInt(mStrArgKey, mIntArgVal).commit();
+            returnVar = HomerPrefHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putInt(mStrArgKey, mIntArgVal).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +131,7 @@ public class HomerSharedPrefrenceHelper {
     public static boolean saveLong(Context mCtxArgContext, String mStrArgPrefName, String mStrArgKey, long mLongArgVal) {
         boolean returnVar = false;
         try {
-            returnVar = HomerSharedPrefrenceHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putLong(mStrArgKey, mLongArgVal).commit();
+            returnVar = HomerPrefHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putLong(mStrArgKey, mLongArgVal).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,7 +151,7 @@ public class HomerSharedPrefrenceHelper {
     public static boolean saveStringSet(Context mCtxArgContext, String mStrArgPrefName, String mStrArgKey, Set<String> mSetStrArgVal) {
         boolean returnVar = false;
         try {
-            returnVar = HomerSharedPrefrenceHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putStringSet(mStrArgKey, mSetStrArgVal).commit();
+            returnVar = HomerPrefHelper.getPref(mCtxArgContext, mStrArgPrefName).edit().putStringSet(mStrArgKey, mSetStrArgVal).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -168,7 +168,7 @@ public class HomerSharedPrefrenceHelper {
 
 
         try {
-            HomerSharedPrefrenceHelper.getPref(context, mStrPrefName).edit().remove(mStrPrefKeyToBeRemoved).commit();
+            HomerPrefHelper.getPref(context, mStrPrefName).edit().remove(mStrPrefKeyToBeRemoved).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

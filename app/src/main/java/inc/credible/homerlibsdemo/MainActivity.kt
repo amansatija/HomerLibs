@@ -2,14 +2,13 @@ package inc.credible.homerlibsdemo
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import inc.credible.homerlibs.ActivityHomer
+import inc.credible.homerlibs.HomerActivity
 
-class MainActivity : ActivityHomer() {
+class MainActivity : HomerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

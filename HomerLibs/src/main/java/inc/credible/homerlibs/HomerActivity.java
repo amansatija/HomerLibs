@@ -25,7 +25,7 @@ import inc.credible.homerlibs.session.SessionProvider;
 /**
  * Created by amansatija on 5/3/16.
  */
-public class ActivityHomer extends AppCompatActivity implements View.OnClickListener{
+public class HomerActivity extends AppCompatActivity implements View.OnClickListener{
     protected ProgressBar mPbLoaderProgess;
     protected TextView mTvErrMsg;
     protected ImageView mIvErrImg;
@@ -69,10 +69,10 @@ public class ActivityHomer extends AppCompatActivity implements View.OnClickList
     }
 
     public void findViewByIds(Bundle savedInstanceState) {
-        mPbLoaderProgess = (ProgressBar)findViewById(R.id.load_n_error_pb);
-        mTvErrMsg= (TextView) findViewById(R.id.load_n_error_tv_msg);
-        mLlErrWrapper = (LinearLayout)findViewById(R.id.load_n_error_ll_centerWrapper);
-        mIvErrImg= (ImageView) findViewById(R.id.load_n_error_iv_img);
+        mPbLoaderProgess = (ProgressBar)findViewById(R.id.hl_load_n_error_pb);
+        mTvErrMsg= (TextView) findViewById(R.id.hl_load_n_error_tv_msg);
+        mLlErrWrapper = (LinearLayout)findViewById(R.id.hl_load_n_error_ll_centerWrapper);
+        mIvErrImg= (ImageView) findViewById(R.id.hl_load_n_error_iv_img);
     }
 
     public void setListeners(Bundle savedInstanceState) {

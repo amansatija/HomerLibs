@@ -11,20 +11,20 @@ import androidx.fragment.app.Fragment;
 /**
  * Created by admin on 20-Feb-15.
  */
-public class FragmentHomer extends Fragment implements View.OnClickListener {
+public class HomerFragment extends Fragment implements View.OnClickListener {
     public View mVRootView;
 
     protected ProgressBar mPbLoaderProgess;
     protected TextView mTvErrMsg;
 
     public interface OnFragmentUiLoadedListener {
-        public void doOnFragmentUiLoaded(FragmentHomer fragment);
+        public void doOnFragmentUiLoaded(HomerFragment fragment);
     }
 
 
     private OnFragmentUiLoadedListener mFragmentUiLoadedListener = new OnFragmentUiLoadedListener() {
         @Override
-        public void doOnFragmentUiLoaded(FragmentHomer fragment) {
+        public void doOnFragmentUiLoaded(HomerFragment fragment) {
 
         }
     };
@@ -88,8 +88,8 @@ public class FragmentHomer extends Fragment implements View.OnClickListener {
     }
 
     public void findViewByIds(View v) {
-        mPbLoaderProgess = (ProgressBar) v.findViewById(R.id.load_n_error_pb);
-        mTvErrMsg = (TextView) v.findViewById(R.id.load_n_error_tv_msg);
+        mPbLoaderProgess = (ProgressBar) v.findViewById(R.id.hl_load_n_error_pb);
+        mTvErrMsg = (TextView) v.findViewById(R.id.hl_load_n_error_tv_msg);
     }
 
     public void setListeners(View v) {
